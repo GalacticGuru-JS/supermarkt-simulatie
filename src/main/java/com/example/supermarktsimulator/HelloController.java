@@ -2,13 +2,19 @@ package com.example.supermarktsimulator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private GridPane grid;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void initialize() {
+        // Vul de GridPane met placeholders
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 5; col++) {
+                grid.add(new Label("[" + row + "," + col + "]"), col, row);
+            }
+        }
     }
 }
