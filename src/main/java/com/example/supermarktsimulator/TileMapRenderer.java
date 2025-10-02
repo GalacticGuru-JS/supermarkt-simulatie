@@ -11,11 +11,11 @@ public class TileMapRenderer extends JPanel {
     private BufferedImage tileset;
     private int[][] map;
     private Tile[] tileDefinitions; // Metadata per tile type
-    private final int tileSize = 50; // ✅ Elke tile is 50x50 pixels
+    private final int tileSize = 32; // ✅ Elke tile is 50x50 pixels
 
     public TileMapRenderer() throws IOException {
         // 1️⃣ Tilesheet laden
-        tileset = ImageIO.read(getClass().getResource("/image.png"));
+        tileset = ImageIO.read(getClass().getResource("/untitled.png"));
         map = loadMap("/tilemap.txt");
     }
 
@@ -67,7 +67,7 @@ public class TileMapRenderer extends JPanel {
         TileMapRenderer panel = new TileMapRenderer();
         frame.add(panel);
 
-        frame.setSize(800, 600);
+        frame.setSize(1600, 1200);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
