@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Entrance-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exit-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Grond-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Kassa-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Schap-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Wall-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tilemap.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tilemap.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/untitled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,28 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TileMapRenderer.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Grid&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Launcher.executor": "Run",
+    "Application.SupermarktApplication.executor": "Run",
+    "Application.TileMapRenderer.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Grid",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources" />
@@ -101,7 +92,7 @@
       <workItem from="1758199946164" duration="2035000" />
       <workItem from="1758612229290" duration="11601000" />
       <workItem from="1759396631395" duration="11065000" />
-      <workItem from="1759741351045" duration="12060000" />
+      <workItem from="1759741351045" duration="19115000" />
     </task>
     <servers />
   </component>
