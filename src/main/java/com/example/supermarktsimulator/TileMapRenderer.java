@@ -10,12 +10,12 @@ public class TileMapRenderer extends JPanel {
 
     private BufferedImage tileset;
     private int[][] map;
-    private Tile[] tileDefinitions; // Metadata per tile type
-    private final int tileSize = 32; // ✅ Elke tile is 50x50 pixels
+//    private Tile[] tileDefinitions; // Metadata per tile type
+    private final int tileSize = 32; // ✅ Elke tile is 32x32 pixels
 
     public TileMapRenderer() throws IOException {
         // 1️⃣ Tilesheet laden
-        tileset = ImageIO.read(getClass().getResource("/untitled.png"));
+        tileset = ImageIO.read(getClass().getResource("/FlorisIsCool.png"));
         map = loadMap("/tilemap.txt");
     }
 
