@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +52,7 @@
     "Application.Launcher.executor": "Run",
     "Application.SupermarktApplication.executor": "Run",
     "Application.TileMapRenderer.executor": "Run",
+    "JUnit.ProductTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -57,6 +66,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -67,6 +79,8 @@
       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\test\java\com\example\supermarktsimulator\model" />
+      <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\test\java" />
       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources" />
       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources\images" />
     </key>
@@ -92,7 +106,8 @@
       <workItem from="1758199946164" duration="2035000" />
       <workItem from="1758612229290" duration="11601000" />
       <workItem from="1759396631395" duration="11065000" />
-      <workItem from="1759741351045" duration="19115000" />
+      <workItem from="1759741351045" duration="27742000" />
+      <workItem from="1761556825604" duration="8006000" />
     </task>
     <servers />
   </component>

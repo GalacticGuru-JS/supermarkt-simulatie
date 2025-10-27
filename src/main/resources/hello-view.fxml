@@ -9,6 +9,6 @@
 
 <GridPane fx:id="grid"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.supermarktsimulator.HelloController"
+          fx:controller="com.example.supermarktsimulator.oldcode.HelloController"
           hgap="5" vgap="5">
 </GridPane>

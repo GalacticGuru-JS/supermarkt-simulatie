@@ -1,5 +1,8 @@
 package com.example.supermarktsimulator;
 
+import com.example.supermarktsimulator.graphics.TilesheetManager;
+import com.example.supermarktsimulator.model.Product;
+import com.example.supermarktsimulator.game.SupermarktGame;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,224 +15,196 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 /**
- * SupermarktApplication is de hoofdapplicatie voor de supermarkt simulator.
- * Deze klasse maakt gebruik van JavaFX om een interactieve tilemap weer te geven
- * waarin de gebruiker producten kan oppakken door erop te klikken.
+ * Hoofdapplicatie voor de supermarkt simulator
+ * Verantwoordelijk voor UI rendering en user input
  */
 public class SupermarktApplication extends Application {
 
-    // De TileMapManager beheert de tilemap data en tilesheet
-    private TileMapManager mapManager;
-
-    // De GridPane bevat alle tiles in een grid layout
+    private SupermarktGame game;
+    private TilesheetManager tilesheetManager;
     private GridPane grid;
-
-    // Label dat status berichten toont, bijvoorbeeld "Product opgepakt!"
     private Label statusLabel;
-
-    // Label dat de inhoud van het winkelmandje toont
     private Label inventoryLabel;
 
-    // List die bijhoudt welke producten de gebruiker heeft opgepakt
-    private List<String> inventory = new ArrayList<>();
+    private static final int TILE_SIZE = 32;
+    private static final String TILESHEET_PATH = "/FlorisIsCool.png";
+    private static final String MAP_PATH = "/tilemap.txt";
 
-    /**
-     * De start methode wordt aangeroepen door JavaFX om de applicatie te starten.
-     * Hier wordt de hele UI opgebouwd.
-     */
     @Override
     public void start(Stage stage) {
-        // Probeer de TileMapManager te initialiseren
         try {
-            mapManager = new TileMapManager();
+            initializeGame();
         } catch (IOException e) {
-            // Als het laden van de tilemap/tilesheet faalt, print de error en stop
-            e.printStackTrace();
+            showError("Kan game niet laden: " + e.getMessage());
             return;
         }
 
-        // ===== LAYOUT OPZETTEN =====
-
-        // BorderPane als hoofdlayout (heeft center, left, right, top, bottom secties)
-        BorderPane root = new BorderPane();
-
-        // GridPane voor de tilemap (center van de BorderPane)
-        grid = new GridPane();
-        grid.setHgap(0);  // Geen horizontale ruimte tussen tiles
-        grid.setVgap(0);  // Geen verticale ruimte tussen tiles
-        grid.setPadding(new Insets(10));  // 10 pixels padding rondom de grid
-
-        // Render de tilemap voor het eerst
-        renderMap();
-
-        // ===== INFO PANEL (rechterkant) =====
-
-        // VBox voor het info panel (verticale container)
-        VBox infoPanel = new VBox(10);  // 10 pixels spacing tussen elementen
-        infoPanel.setPadding(new Insets(10));
-        infoPanel.setStyle("-fx-background-color: #f0f0f0; -fx-min-width: 300;");
-
-        // Titel label
-        Label titleLabel = new Label("🛒 Supermarkt Simulator");
-        titleLabel.setStyle("-fx-font-size: 16; -fx-font-weight: bold;");
-
-        // Status label (laat zien wat er gebeurt bij clicks)
-        statusLabel = new Label("Klik op een product om het op te pakken!");
-        statusLabel.setWrapText(true);  // Text wrapping als het te lang is
-
-        // Inventory label (toont wat er in het winkelmandje zit)
-        inventoryLabel = new Label("Winkelmandje (0):");
-        inventoryLabel.setStyle("-fx-font-weight: bold;");
-
-        // Voeg alle labels toe aan de info panel
-        infoPanel.getChildren().addAll(titleLabel, statusLabel, new Label(""), inventoryLabel);
-
-        // Plaats de grid in het midden en de info panel rechts
-        root.setCenter(grid);
-        root.setRight(infoPanel);
-
-        // ===== SCENE EN STAGE CONFIGUREREN =====
-
-        // Maak een Scene met de root layout
-        Scene scene = new Scene(root, 1400, 700);
+        Scene scene = new Scene(createMainLayout(), 1400, 700);
         stage.setTitle("Supermarkt Simulatie - JavaFX");
         stage.setScene(scene);
-        stage.show();  // Toon het venster
+        stage.show();
     }
 
     /**
-     * Rendert de volledige tilemap in de GridPane.
-     * Deze methode wordt aangeroepen bij het opstarten en elke keer als de map verandert
-     * (bijvoorbeeld wanneer een product wordt opgepakt).
+     * Initialiseert de game en graphics managers
+     */
+    private void initializeGame() throws IOException {
+        game = new SupermarktGame(MAP_PATH);
+        tilesheetManager = new TilesheetManager(TILESHEET_PATH, TILE_SIZE);
+    }
+
+    /**
+     * Creëert de hoofdlayout van de applicatie
+     */
+    private BorderPane createMainLayout() {
+        BorderPane root = new BorderPane();
+
+        grid = createTileGrid();
+        renderMap();
+
+        root.setCenter(grid);
+        root.setRight(createInfoPanel());
+
+        return root;
+    }
+
+    /**
+     * Creëert de GridPane voor de tilemap
+     */
+    private GridPane createTileGrid() {
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(0);
+        gridPane.setVgap(0);
+        gridPane.setPadding(new Insets(10));
+        return gridPane;
+    }
+
+    /**
+     * Creëert het informatie paneel aan de rechterkant
+     */
+    private VBox createInfoPanel() {
+        VBox panel = new VBox(10);
+        panel.setPadding(new Insets(10));
+        panel.setStyle("-fx-background-color: #f0f0f0; -fx-min-width: 300;");
+
+        Label title = new Label("🛒 Supermarkt Simulator");
+        title.setStyle("-fx-font-size: 16; -fx-font-weight: bold;");
+
+        statusLabel = new Label("Klik op een product om het op te pakken!");
+        statusLabel.setWrapText(true);
+
+        inventoryLabel = new Label("Winkelmandje (0):");
+        inventoryLabel.setStyle("-fx-font-weight: bold;");
+
+        panel.getChildren().addAll(title, statusLabel, new Label(""), inventoryLabel);
+        return panel;
+    }
+
+    /**
+     * Rendert de volledige tilemap
      */
     private void renderMap() {
-        // Verwijder alle bestaande tiles uit de grid
         grid.getChildren().clear();
 
-        // Haal de 2D map array op uit de manager
-        int[][] map = mapManager.getMap();
+        int[][] map = game.getMap();
 
-        // Loop door alle rijen en kolommen van de map
-        for (int row = 0; row < mapManager.getMapHeight(); row++) {
-            for (int col = 0; col < mapManager.getMapWidth(); col++) {
-
-                // Haal de tile index op voor deze positie
-                int tileIndex = map[row][col];
-
-                // Maak een ImageView met de juiste tile afbeelding
-                ImageView tileView = new ImageView(mapManager.getTileImage(tileIndex));
-                tileView.setFitWidth(mapManager.getTileSize());
-                tileView.setFitHeight(mapManager.getTileSize());
-
-                // Bewaar de huidige positie in final variabelen voor de lambda
-                // (Lambda's kunnen alleen final of effectively final variabelen gebruiken)
-                final int currentRow = row;
-                final int currentCol = col;
-
-                // ===== INTERACTIVITEIT TOEVOEGEN =====
-
-                // Als het een product is, voeg dan hover effects toe
-                if (mapManager.isProduct(tileIndex)) {
-                    // Verander cursor naar een handje bij hover
-                    tileView.setStyle("-fx-cursor: hand;");
-
-                    // Maak tile semi-transparant bij hover (visuele feedback)
-                    tileView.setOnMouseEntered(e -> tileView.setOpacity(0.7));
-
-                    // Zet opacity terug naar normaal als de muis weggaat
-                    tileView.setOnMouseExited(e -> tileView.setOpacity(1.0));
-                }
-
-                // Voeg click handler toe: roep handleTileClick aan bij linkse muisklik
-                tileView.setOnMouseClicked(event -> {
-                    if (event.getButton() == MouseButton.PRIMARY) {  // PRIMARY = linkermuisknop
-                        handleTileClick(currentRow, currentCol);
-                    }
-                });
-
-                // Voeg de tile toe aan de grid op de juiste positie
+        for (int row = 0; row < game.getMapHeight(); row++) {
+            for (int col = 0; col < game.getMapWidth(); col++) {
+                ImageView tileView = createTileView(row, col, map[row][col]);
                 grid.add(tileView, col, row);
             }
         }
     }
 
     /**
-     * Behandelt een klik op een tile.
-     * Deze methode wordt aangeroepen wanneer de gebruiker op een tile klikt.
-     * Als het een product is, wordt het opgepakt en toegevoegd aan het winkelmandje.
-     *
-     * @param row De rij waar op geklikt is
-     * @param col De kolom waar op geklikt is
+     * Creëert een ImageView voor een specifieke tile
+     */
+    private ImageView createTileView(int row, int col, int tileIndex) {
+        ImageView tileView = new ImageView(tilesheetManager.getTileImage(tileIndex));
+        tileView.setFitWidth(TILE_SIZE);
+        tileView.setFitHeight(TILE_SIZE);
+
+        if (game.isProduct(tileIndex)) {
+            addProductInteractivity(tileView);
+        }
+
+        tileView.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                handleTileClick(row, col);
+            }
+        });
+
+        return tileView;
+    }
+
+    /**
+     * Voegt hover effecten toe aan product tiles
+     */
+    private void addProductInteractivity(ImageView tileView) {
+        tileView.setStyle("-fx-cursor: hand;");
+        tileView.setOnMouseEntered(e -> tileView.setOpacity(0.7));
+        tileView.setOnMouseExited(e -> tileView.setOpacity(1.0));
+    }
+
+    /**
+     * Behandelt een klik op een tile
      */
     private void handleTileClick(int row, int col) {
-        // Probeer een product op te pakken op deze positie
-        // pickupProduct() geeft de tile index terug als het een product was, anders -1
-        int pickedProduct = mapManager.pickupProduct(row, col);
+        Optional<Product> pickedProduct = game.pickupProduct(row, col);
 
-        // Controleer of er daadwerkelijk een product was opgepakt
-        if (pickedProduct != -1) {
-            // ===== PRODUCT SUCCESVOL OPGEPAKT =====
-
-            // Haal de naam van het product op (bijv. "Product A")
-            String productName = mapManager.getProductName(pickedProduct);
-
-            // Voeg het product toe aan de inventory list
-            inventory.add(productName);
-
-            // Update de status label met een succesbericht (groen)
-            statusLabel.setText("✅ " + productName + " toegevoegd aan winkelmandje!");
-            statusLabel.setStyle("-fx-text-fill: green;");
-
-            // Update de weergave van het winkelmandje
-            updateInventoryDisplay();
-
-            // Render de map opnieuw zodat het product visueel verdwijnt
-            renderMap();
-
+        if (pickedProduct.isPresent()) {
+            handleSuccessfulPickup(pickedProduct.get());
         } else {
-            // ===== GEEN PRODUCT OP DEZE POSITIE =====
-
-            // Toon een foutmelding (rood)
-            statusLabel.setText("❌ Hier ligt geen product!");
-            statusLabel.setStyle("-fx-text-fill: red;");
+            handleFailedPickup();
         }
     }
 
     /**
-     * Update de weergave van het winkelmandje in de info panel.
-     * Telt hoeveel van elk product er in het winkelmandje zit en toont dit.
+     * Behandelt een succesvol product oppakken
+     */
+    private void handleSuccessfulPickup(Product product) {
+        statusLabel.setText("✅ " + product.getName() + " toegevoegd aan winkelmandje!");
+        statusLabel.setStyle("-fx-text-fill: green;");
+        updateInventoryDisplay();
+        renderMap();
+    }
+
+    /**
+     * Behandelt een mislukte poging om een product op te pakken
+     */
+    private void handleFailedPickup() {
+        statusLabel.setText("❌ Hier ligt geen product!");
+        statusLabel.setStyle("-fx-text-fill: red;");
+    }
+
+    /**
+     * Update de weergave van het winkelmandje
      */
     private void updateInventoryDisplay() {
-        // Start met een basismelding met het totaal aantal items
-        StringBuilder sb = new StringBuilder("Winkelmandje (" + inventory.size() + "):\n");
+        int total = game.getInventory().getTotalItems();
+        StringBuilder sb = new StringBuilder("Winkelmandje (" + total + "):\n");
 
-        // ===== TEL AANTAL VAN ELKE PRODUCT TYPE =====
-        int countA = 0, countB = 0, countC = 0;
+        Map<String, Integer> counts = game.getInventory().getProductCounts();
 
-        // Loop door alle items in het winkelmandje
-        for (String product : inventory) {
-            if (product.equals("Vlees")) countA++;
-            else if (product.equals("Frisdrank")) countB++;
-            else if (product.equals("Groente / Fruit")) countC++;
+        for (Map.Entry<String, Integer> entry : counts.entrySet()) {
+            sb.append("\n📦 ").append(entry.getKey()).append(": ").append(entry.getValue());
         }
 
-        // Voeg alleen producten toe die daadwerkelijk in het mandje zitten
-        if (countA > 0) sb.append("\n📦 Vlees: ").append(countA);
-        if (countB > 0) sb.append("\n📦 Frisdrank: ").append(countB);
-        if (countC > 0) sb.append("\n📦 Groente / Fruit: ").append(countC);
-
-        // Update het inventory label met de nieuwe tekst
         inventoryLabel.setText(sb.toString());
     }
 
     /**
-     * Main methode: start de JavaFX applicatie
+     * Toont een error bericht
      */
+    private void showError(String message) {
+        System.err.println("ERROR: " + message);
+    }
+
     public static void main(String[] args) {
-        launch();  // Roept automatisch start() aan
+        launch();
     }
 }

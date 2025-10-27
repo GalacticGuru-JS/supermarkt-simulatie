@@ -1,4 +1,4 @@
-package com.example.supermarktsimulator;
+package com.example.supermarktsimulator.oldcode;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

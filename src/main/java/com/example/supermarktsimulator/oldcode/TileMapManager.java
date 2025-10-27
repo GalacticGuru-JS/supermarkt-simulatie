@@ -1,4 +1,4 @@
-package com.example.supermarktsimulator;
+package com.example.supermarktsimulator.oldcode;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
@@ -6,14 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * TileMapManager beheert de tilemap en tilesheet.
- * Deze klasse is verantwoordelijk voor:
- * - Het laden van de tilesheet afbeelding
- * - Het inlezen van de tilemap uit een tekstbestand
- * - Het ophalen van individuele tiles uit de sheet
- * - Het manipuleren van de map (producten oppakken, tiles vervangen)
- */
 public class TileMapManager {
     // De tilesheet bevat alle tiles in één afbeelding
     private static Image tilesheet;
