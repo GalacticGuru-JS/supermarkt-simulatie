@@ -1,0 +1,29 @@
+Index: src/main/java/com/example/supermarktsimulator/TileMapRenderer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.supermarktsimulator;\n\nimport javax.swing.*;\nimport java.awt.*;\nimport java.awt.image.BufferedImage;\nimport java.io.*;\nimport javax.imageio.ImageIO;\n\npublic class TileMapRenderer extends JPanel {\n\n    private BufferedImage tileset;\n    private int[][] map;\n//    private Tile[] tileDefinitions; // Metadata per tile type\n    private final int tileSize = 32; // ✅ Elke tile is 32x32 pixels\n\n    public TileMapRenderer() throws IOException {\n        // 1\uFE0F⃣ Tilesheet laden\n        tileset = ImageIO.read(getClass().getResource(\"/FlorisIsCool.png\"));\n        map = loadMap(\"/tilemap.txt\");\n    }\n\n    /**\n     * Leest een tekstbestand met spaties gescheiden nummers en maakt daar een 2D-array van\n     */\n    private int[][] loadMap(String path) throws IOException {\n        try (BufferedReader reader = new BufferedReader(\n                new InputStreamReader(getClass().getResourceAsStream(path)))) {\n\n            return reader.lines()\n                    .map(line -> line.trim().split(\" +\"))\n                    .map(arr -> java.util.Arrays.stream(arr)\n                            .mapToInt(Integer::parseInt)\n                            .toArray())\n                    .toArray(int[][]::new);\n        }\n    }\n\n    /**\n     * Tekent de tilemap op het scherm\n     */\n    @Override\n    protected void paintComponent(Graphics g) {\n        super.paintComponent(g);\n\n        int tilesPerRow = tileset.getWidth() / tileSize;\n\n        for (int y = 0; y < map.length; y++) {\n            for (int x = 0; x < map[y].length; x++) {\n                int tileIndex = map[y][x];\n\n                // Bereken positie in tilesheet\n                int tileX = (tileIndex % tilesPerRow) * tileSize;\n                int tileY = (tileIndex / tilesPerRow) * tileSize;\n\n                BufferedImage tile = tileset.getSubimage(tileX, tileY, tileSize, tileSize);\n\n                // Teken tile op juiste positie\n                g.drawImage(tile, x * tileSize, y * tileSize, null);\n            }\n        }\n    }\n\n    public static void main(String[] args) throws IOException {\n        JFrame frame = new JFrame(\"\uD83D\uDED2 Supermarkt Tilemap\");\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n\n        TileMapRenderer panel = new TileMapRenderer();\n        frame.add(panel);\n\n        frame.setSize(1600, 1200);\n        frame.setLocationRelativeTo(null);\n        frame.setVisible(true);\n    }\n}\n
+===================================================================
+diff --git a/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java b/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java
+--- a/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
++++ b/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java	(date 1760095636759)
+@@ -10,11 +10,11 @@
+ 
+     private BufferedImage tileset;
+     private int[][] map;
+-//    private Tile[] tileDefinitions; // Metadata per tile type
++    //    private Tile[] tileDefinitions; // Metadata per tile type
+     private final int tileSize = 32; // ✅ Elke tile is 32x32 pixels
+ 
+     public TileMapRenderer() throws IOException {
+-        // 1️⃣ Tilesheet laden
++        // Tilesheet laden
+         tileset = ImageIO.read(getClass().getResource("/FlorisIsCool.png"));
+         map = loadMap("/tilemap.txt");
+     }
+@@ -71,4 +71,4 @@
+         frame.setLocationRelativeTo(null);
+         frame.setVisible(true);
+     }
+-}
++}
+\ No newline at end of file
