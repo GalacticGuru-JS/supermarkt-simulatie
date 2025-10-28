@@ -6,23 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/game/SupermarktGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/graphics/TilesheetManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Inventory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/ProductRegistry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/ProductType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/TileType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/util/TileMapLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FlorisIsCool.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +52,7 @@
     "JUnit.ProductTest.executor": "Run",
     "Maven.SupermarktSimulator [clean,javafx:run].executor": "Run",
     "Maven.SupermarktSimulator [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.SupermarktSimulator.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
