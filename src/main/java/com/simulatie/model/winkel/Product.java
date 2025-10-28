@@ -1,5 +1,8 @@
 package com.simulatie.model.winkel;
 
+/**
+ * HET DOEL: Een simpele dataklasse voor een product. Bevat alleen informatie.
+ */
 public class Product {
     private final String naam;
     private final String soort;

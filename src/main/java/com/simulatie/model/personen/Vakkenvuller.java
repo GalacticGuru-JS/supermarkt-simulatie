@@ -5,14 +5,19 @@ import com.simulatie.model.pathfinding.Pathfinder;
 import com.simulatie.model.winkel.Point;
 import com.simulatie.model.winkel.Schap;
 
+/**
+ * HET DOEL:
+ * Representeert een vakkenvuller. Zijn taak is om voorraad uit het magazijn te halen
+ * en daarmee lege schappen in de winkel bij te vullen.
+ */
 public class Vakkenvuller extends Persoon {
 
     private enum Status { RONDLOPEN, VOORRAAD_HALEN, VAKKEN_VULLEN }
     private Status status = Status.RONDLOPEN;
 
-    private int handVoorraad = 0;
-    private static final int MAX_HANDVOORRAAD = 20;
-    private static final int VUL_HOEVEELHEID = 10;
+    private int handVoorraad = 0; // Hoeveel producten de vuller momenteel bij zich draagt.
+    private static final int MAX_HANDVOORRAAD = 20; // Maximaal aantal producten dat hij kan dragen.
+    private static final int VUL_HOEVEELHEID = 10; // Hoeveel producten hij per keer in een schap legt.
 
     private Schap doelSchap = null;
 
@@ -22,6 +27,9 @@ public class Vakkenvuller extends Persoon {
         return handVoorraad;
     }
 
+    /**
+     * De 'denk'-methode van de vakkenvuller.
+     */
     @Override
     public void update(Supermarkt supermarkt) {
         if (pad != null && !pad.isEmpty()) {
@@ -35,15 +43,14 @@ public class Vakkenvuller extends Persoon {
                 break;
 
             case VOORRAAD_HALEN:
-                // We zijn aangekomen bij de magazijndeur
+                // We zijn aangekomen bij de magazijndeur.
                 int gehaaldeVoorraad = supermarkt.getMagazijn().pakVoorraad(MAX_HANDVOORRAAD - handVoorraad);
                 handVoorraad += gehaaldeVoorraad;
-                System.out.println("Vakkenvuller heeft " + gehaaldeVoorraad + " items gehaald. Totaal: " + handVoorraad);
-                status = Status.RONDLOPEN;
+                status = Status.RONDLOPEN; // Terug naar basisstatus om nieuwe beslissing te maken.
                 break;
 
             case VAKKEN_VULLEN:
-                // We zijn aangekomen bij het lege schap
+                // We zijn aangekomen bij het lege schap.
                 if (doelSchap != null) {
                     doelSchap.vulBij(VUL_HOEVEELHEID);
                     handVoorraad -= VUL_HOEVEELHEID;
@@ -54,12 +61,14 @@ public class Vakkenvuller extends Persoon {
         }
     }
 
+    /**
+     * De kernlogica van de vakkenvuller: wat is de volgende stap?
+     */
     private void beslisVolgendeActie(Supermarkt supermarkt) {
         if (handVoorraad <= 0) {
             // Geen voorraad meer, ga nieuwe halen.
             status = Status.VOORRAAD_HALEN;
             pad = Pathfinder.vindPad(getHuidigeTegel(), supermarkt.getMagazijnDeur(), supermarkt);
-            System.out.println("Vakkenvuller gaat voorraad halen.");
         } else {
             // We hebben voorraad, zoek een leeg schap.
             Schap leegSchap = supermarkt.vindLeegSchap();
@@ -68,9 +77,8 @@ public class Vakkenvuller extends Persoon {
                 doelSchap = leegSchap;
                 Point bestemming = supermarkt.vindBeloopbareBuur(leegSchap.getLocatie());
                 pad = Pathfinder.vindPad(getHuidigeTegel(), bestemming, supermarkt);
-                System.out.println("Vakkenvuller gaat naar leeg schap op " + leegSchap.getLocatie());
             } else {
-                // Geen lege schappen, loop maar een rondje.
+                // Geen lege schappen, loop maar een willekeurig rondje.
                 pad = Pathfinder.vindPad(getHuidigeTegel(), supermarkt.getWillekeurigeBeloopbareTegel(), supermarkt);
             }
         }

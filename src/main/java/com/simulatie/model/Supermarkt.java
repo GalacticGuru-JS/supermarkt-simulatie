@@ -12,8 +12,18 @@ import java.io.InputStreamReader;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * HET DOEL:
+ * Dit is de centrale Model-klasse. Het is het brein van de simulatie.
+ * Deze klasse bevat alle data (lijsten van personen, schappen, etc.) en de hoofdregels
+ * van de simulatie (zoals het spawnen van klanten en het aansturen van de manager).
+ */
 public class Supermarkt {
 
+    // --- Configuratie Constanten ---
+    // DE KEUZE: Alle "magische getallen" (zoals kaartgrootte, locaties) worden bovenaan
+    // als 'static final' constanten gedefinieerd. Dit maakt de code leesbaarder en
+    // makkelijker aan te passen. Als de ingang verplaatst moet worden, hoeft dat maar op één plek.
     public static final int KAART_BREEDTE_IN_TEGELS = 32;
     public static final int KAART_HOOGTE_IN_TEGELS = 21;
     private static final Point INGANG_LOCATIE = new Point(4, 20);
@@ -23,39 +33,50 @@ public class Supermarkt {
     private static final Point MANAGER_LEVERING_PLEK = new Point(30, 12);
     private static final int MAX_AANTAL_KLANTEN = 25;
 
-    private int[][] kaartData;
-    private final List<Persoon> personen = new ArrayList<>();
-    private final List<Schap> schappen = new ArrayList<>();
-    private final List<KassaRij> kassaRijen = new ArrayList<>();
-    private SupermarktManager manager;
-    private Vakkenvuller vakkenvuller;
-    private final Magazijn magazijn = new Magazijn();
-    private double snelheidsMultiplier = 1.0;
+    // --- Simulatie Staat ---
+    // Dit zijn de variabelen die de huidige toestand van de supermarkt beschrijven.
+    private int[][] kaartData; // De layout van de winkel.
+    private final List<Persoon> personen = new ArrayList<>(); // Alle "levende" objecten.
+    private final List<Schap> schappen = new ArrayList<>();   // Alle winkelschappen.
+    private final List<KassaRij> kassaRijen = new ArrayList<>(); // De kassarijen.
+    private SupermarktManager manager; // Een directe referentie naar de manager.
+    private Vakkenvuller vakkenvuller; // Een directe referentie naar de vakkenvuller.
+    private final Magazijn magazijn = new Magazijn(); // Het magazijn.
+    private double snelheidsMultiplier = 1.0; // Factor om de simulatie te versnellen/vertragen.
 
+    // --- Timers & Logica ---
     private int klantSpawnTimer = 0;
     private int leveringTimer = 0;
-    private boolean leveringOnderweg = false;
-    private final Random random = new Random();
+    private boolean leveringOnderweg = false; // Een 'vlag' om te voorkomen dat er meerdere leveringen tegelijk worden besteld.
+    private final Random random = new Random(); // Voor willekeurige keuzes.
 
     public Supermarkt() {
         laadKaart();
         initialiseerWinkel();
     }
 
+    /**
+     * De hoofd-updatemethode. Wordt elke 'tick' van de game loop aangeroepen.
+     * De volgorde hier is belangrijk voor de logica.
+     */
     public void update() {
-        beheerLeveringen();
-        werkPersonenBij();
-        spawnNieuweKlant();
-        werkKaartBij();
-        verwijderKlantenDieKlaarZijn();
+        beheerLeveringen();         // Check of er een nieuwe levering nodig is.
+        werkPersonenBij();          // Update elke persoon (bewegen, beslissen).
+        spawnNieuweKlant();         // Check of er een nieuwe klant mag binnenkomen.
+        werkKaartBij();             // Update de tegels (bv. een leeg schap).
+        verwijderKlantenDieKlaarZijn(); // Ruim klanten op die de winkel hebben verlaten.
     }
 
+    /**
+     * Zet de supermarkt op bij de start: leest de kaart en creëert schappen en personeel.
+     */
     private void initialiseerWinkel() {
         Product vlees = new Product("Biefstuk", "Vleeswaren");
         Product frisdrank = new Product("Cola", "Frisdrank");
         Product groente = new Product("Broccoli", "Groente");
         Map<Integer, Product> productPerTegel = Map.of(3, vlees, 4, frisdrank, 5, groente);
 
+        // Loop door de kaartdata om objecten te maken op basis van de tegel-ID's.
         for (int r = 0; r < kaartData.length; r++) {
             for (int c = 0; c < kaartData[r].length; c++) {
                 int tegelId = kaartData[r][c];
@@ -68,53 +89,75 @@ public class Supermarkt {
             }
         }
 
+        // Maak het personeel aan en voeg ze toe aan de lijst van personen.
         manager = new SupermarktManager(KANTOOR_LOCATIE);
         vakkenvuller = new Vakkenvuller(MAGAZIJN_DEUR);
         personen.add(manager);
         personen.add(vakkenvuller);
     }
 
+    /**
+     * Beheert het spawnen van nieuwe klanten op basis van een timer en een maximumaantal.
+     */
     private void spawnNieuweKlant() {
         klantSpawnTimer++;
         long aantalKlanten = personen.stream().filter(Klant.class::isInstance).count();
+        // De timer wordt beïnvloed door de snelheidsmultiplier.
         if (klantSpawnTimer > (100 / snelheidsMultiplier) && aantalKlanten < MAX_AANTAL_KLANTEN) {
-            klantSpawnTimer = 0;
+            klantSpawnTimer = 0; // Reset de timer.
             Klant nieuweKlant = new Klant(INGANG_LOCATIE);
             nieuweKlant.setSnelheidMultiplier(snelheidsMultiplier);
             personen.add(nieuweKlant);
         }
     }
 
+    /**
+     * Beheert het aanvragen van nieuwe leveringen voor het magazijn.
+     */
     private void beheerLeveringen() {
         leveringTimer++;
-        // AANPASSING: Verlaagd van 1500 naar 1000 voor snellere leveringen
-        if (!leveringOnderweg && leveringTimer > 2250) {
+        if (!leveringOnderweg && leveringTimer > 1000) {
             leveringTimer = 0;
-            leveringOnderweg = true;
+            leveringOnderweg = true; // Zet de vlag om dubbele bestellingen te voorkomen.
             manager.roepVoorLevering(this);
         }
     }
 
+    /**
+     * Wordt aangeroepen door de Manager wanneer hij een levering heeft verwerkt.
+     */
     public void verwerkLevering() {
-        magazijn.ontvangLevering(150);
-        leveringOnderweg = false;
+        magazijn.ontvangLevering(50);
+        leveringOnderweg = false; // Zet de vlag terug zodat een nieuwe levering kan worden aangevraagd.
     }
 
+    /**
+     * Stuurt de manager aan en update elke persoon in de simulatie.
+     */
     private void werkPersonenBij() {
+        // Loop door de kassarijen om te zien of een manager nodig is.
         for (KassaRij rij : kassaRijen) {
             Klant wachtendeKlant = rij.getKlantVooraan();
             if (wachtendeKlant != null && wachtendeKlant.wachtOpManager()) {
                 manager.roepNaarKassa(this, rij.getManagerPlek());
-                break;
+                break; // De manager kan maar één klant tegelijk helpen.
             }
         }
 
+        // Roep de 'update'-methode van elke persoon aan.
+        // DE KEUZE: We maken een kopie (`new ArrayList<>(...)`) om over te loopen.
+        // Dit voorkomt een `ConcurrentModificationException` als een persoon zichzelf
+        // uit de lijst zou verwijderen tijdens de loop (gebeurt hier niet, maar is een goede gewoonte).
         for (Persoon p : new ArrayList<>(personen)) {
             p.update(this);
         }
     }
 
+    /**
+     * Verwijdert klanten uit de simulatie die klaar zijn met winkelen.
+     */
     private void verwijderKlantenDieKlaarZijn() {
+        // 'removeIf' is een handige manier om elementen uit een lijst te verwijderen die aan een voorwaarde voldoen.
         personen.removeIf(p -> p instanceof Klant && ((Klant) p).isKlaar());
     }
 
@@ -181,6 +224,7 @@ public class Supermarkt {
         }
     }
 
+    // --- Getters: methodes om informatie op te vragen ---
     public Magazijn getMagazijn() { return magazijn; }
     public int getMagazijnVoorraad() { return magazijn.getVoorraad(); }
     public int getVakkenvullerHandVoorraad() { return vakkenvuller != null ? vakkenvuller.getHandVoorraad() : 0; }

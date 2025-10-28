@@ -1,5 +1,8 @@
 package com.simulatie.model.winkel;
 
+/**
+ * HET DOEL: Representeert een winkelschap. Houdt bij welk product het heeft, waar het staat, en wat de voorraad is.
+ */
 public class Schap {
     private final Point locatie;
     private final int origineleTegelId;
