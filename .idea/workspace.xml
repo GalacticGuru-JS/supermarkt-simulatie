@@ -5,16 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/SupermarktApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/game/SupermarktGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/graphics/TilesheetManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Inventory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/ProductRegistry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/ProductType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/model/TileType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/oldcode/TileMapRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/util/TileMapLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FlorisIsCool.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +37,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Grid" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -50,14 +63,17 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.Launcher.executor": "Run",
+    "Application.SupermarktApp.executor": "Run",
     "Application.SupermarktApplication.executor": "Run",
     "Application.TileMapRenderer.executor": "Run",
     "JUnit.ProductTest.executor": "Run",
+    "Maven.SupermarktSimulator [clean,javafx:run].executor": "Run",
+    "Maven.SupermarktSimulator [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Grid",
+    "git-widget-placeholder": "Store",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources",
@@ -87,6 +103,39 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.supermarktsimulator" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SupermarktSimulator [clean,javafx:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

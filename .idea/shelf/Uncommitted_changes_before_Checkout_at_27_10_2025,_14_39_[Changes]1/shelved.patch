@@ -1,0 +1,519 @@
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module com.example.supermarktsimulator {\n    requires javafx.controls;\n    requires javafx.fxml;\n    requires java.desktop;\n\n\n    opens com.example.supermarktsimulator to javafx.fxml;\n    exports com.example.supermarktsimulator;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
++++ b/src/main/java/module-info.java	(date 1761064698076)
+@@ -6,4 +6,10 @@
+ 
+     opens com.example.supermarktsimulator to javafx.fxml;
+     exports com.example.supermarktsimulator;
++    exports supermarktsimulator;
++    opens supermarktsimulator to javafx.fxml;
++    exports supermarktsimulator.model;
++    opens supermarktsimulator.model to javafx.fxml;
++    exports supermarktsimulator.view;
++    opens supermarktsimulator.view to javafx.fxml;
+ }
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
++++ /dev/null	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
+@@ -1,21 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5dbed3fd-4239-4430-8429-8b3cdeea2ef3\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"floris345\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/GalacticGuru-JS/supermarkt-simulatie\",\n    \"accountId\": \"13ce8583-a42d-4e09-8659-010a00adf22e\"\n  }\n}]]></component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"32sCYkhN6KAUnFzWiMvYDloptSR\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\n    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;Grid&quot;,\n    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\Jari\\IdeaProjects\\SupermarktSimulator\\src\\main\\resources\" />\n    </key>\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"com.example.supermarktsimulator\" />\n    </key>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5dbed3fd-4239-4430-8429-8b3cdeea2ef3\" name=\"Changes\" comment=\"\" />\n      <created>1758199944547</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1758199944547</updated>\n      <workItem from=\"1758199946164\" duration=\"2035000\" />\n      <workItem from=\"1758612229290\" duration=\"10760000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision cb9c747683c42e2d597a9ca3d3b55c4c8dfed7fa)
+-+++ b/.idea/workspace.xml	(date 1759406762334)
+-@@ -4,9 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--    </list>
+-+    <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025__14_07__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025__14_07__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025__14_07__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025__14_07__Changes_.xml	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
++++ /dev/null	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]" date="1759406849669" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 02/10/2025, 14:07 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: src/main/java/supermarktsimulator/SupermarktSimulator.java
+===================================================================
+diff --git a/src/main/java/supermarktsimulator/SupermarktSimulator.java b/src/main/java/supermarktsimulator/SupermarktSimulator.java
+new file mode 100644
+--- /dev/null	(date 1761065124977)
++++ b/src/main/java/supermarktsimulator/SupermarktSimulator.java	(date 1761065124977)
+@@ -0,0 +1,36 @@
++package supermarktsimulator;
++
++import supermarktsimulator.view.SupermarketPanel;
++
++import javax.swing.*;
++import java.awt.*;
++
++/**
++ * Dit is de hoofdklasse van de applicatie.
++ * Zijn enige taak is het opzetten van het venster (JFrame)
++ * en het toevoegen van ons SupermarketPanel waar de simulatie draait.
++ */
++public class SupermarktSimulator {
++
++    public static void main(String[] args) {
++        // Swing applicaties moeten op de 'Event Dispatch Thread' (EDT) worden gestart.
++        // SwingUtilities.invokeLater zorgt daarvoor.
++        SwingUtilities.invokeLater(() -> {
++            // Maak het hoofdvenster van de applicatie.
++            JFrame frame = new JFrame("🛒 Supermarkt Simulator");
++            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++            // Maak een instantie van ons SupermarketPanel.
++            SupermarketPanel panel = new SupermarketPanel();
++            frame.add(panel);
++
++            // Zorg ervoor dat het venster groot genoeg is voor de tilemap.
++            // Dit is een simpele manier, je kunt het ook dynamisch berekenen.
++            frame.setPreferredSize(new Dimension(1600, 900));
++            frame.pack(); // Past de grootte van het frame aan aan de inhoud.
++
++            frame.setLocationRelativeTo(null); // Centreer het venster.
++            frame.setVisible(true); // Maak het venster zichtbaar.
++        });
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5dbed3fd-4239-4430-8429-8b3cdeea2ef3\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"32sCYkhN6KAUnFzWiMvYDloptSR\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Application.HelloApplication.executor\": \"Run\",\n    \"Application.Launcher.executor\": \"Run\",\n    \"Application.SupermarktApplication.executor\": \"Run\",\n    \"Application.TileMapRenderer.executor\": \"Run\",\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"git-widget-placeholder\": \"Grid\",\n    \"junie.onboarding.icon.badge.shown\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"to.speed.mode.migration.done\": \"true\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\Jari\\IdeaProjects\\SupermarktSimulator\\src\\main\\resources\" />\n      <recent name=\"C:\\Users\\Jari\\IdeaProjects\\SupermarktSimulator\\src\\main\\java\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\Jari\\IdeaProjects\\SupermarktSimulator\\src\\main\\resources\" />\n      <recent name=\"C:\\Users\\Jari\\IdeaProjects\\SupermarktSimulator\\src\\main\\resources\\images\" />\n    </key>\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"com.example.supermarktsimulator\" />\n    </key>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5dbed3fd-4239-4430-8429-8b3cdeea2ef3\" name=\"Changes\" comment=\"\" />\n      <created>1758199944547</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1758199944547</updated>\n      <workItem from=\"1758199946164\" duration=\"2035000\" />\n      <workItem from=\"1758612229290\" duration=\"11601000\" />\n      <workItem from=\"1759396631395\" duration=\"11065000\" />\n      <workItem from=\"1759741351045\" duration=\"19115000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fe0a8b14d60747cf8a2f2f85618e22411b7868e2)
++++ b/.idea/workspace.xml	(date 1761318627078)
+@@ -4,9 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="">
++    <list default="true" id="5dbed3fd-4239-4430-8429-8b3cdeea2ef3" name="Changes" comment="images :)">
++      <change afterPath="$PROJECT_DIR$/src/main/java/supermarktsimulator/SupermarktSimulator.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/supermarktsimulator/model/Klant.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/supermarktsimulator/model/Persoon.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/supermarktsimulator/view/SupermarketPanel.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/klant.png" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025,_14_07_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2025__14_07__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/Launcher.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/supermarktsimulator/TileMapRenderer.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,6 +31,18 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "floris345"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/GalacticGuru-JS/supermarkt-simulatie",
++    "accountId": "13ce8583-a42d-4e09-8659-010a00adf22e"
++  }
++}]]></component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+@@ -38,35 +58,37 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.HelloApplication.executor": "Run",
+-    "Application.Launcher.executor": "Run",
+-    "Application.SupermarktApplication.executor": "Run",
+-    "Application.TileMapRenderer.executor": "Run",
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "Grid",
+-    "junie.onboarding.icon.badge.shown": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "to.speed.mode.migration.done": "true",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
++    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
++    &quot;Application.SupermarktApplication.executor&quot;: &quot;Run&quot;,
++    &quot;Application.SupermarktSimulator.executor&quot;: &quot;Run&quot;,
++    &quot;Application.TileMapRenderer.executor&quot;: &quot;Run&quot;,
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;Grid&quot;,
++    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jari/IdeaProjects/SupermarktSimulator/src/main/resources&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources" />
+       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\java" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/main/resources" />
+       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources" />
+       <recent name="C:\Users\Jari\IdeaProjects\SupermarktSimulator\src\main\resources\images" />
+     </key>
+@@ -78,7 +100,6 @@
+     <attachedChunks>
+       <set>
+         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -92,11 +113,22 @@
+       <workItem from="1758199946164" duration="2035000" />
+       <workItem from="1758612229290" duration="11601000" />
+       <workItem from="1759396631395" duration="11065000" />
+-      <workItem from="1759741351045" duration="19115000" />
++      <workItem from="1759741351045" duration="12060000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/supermarktsimulator/model/Persoon.java
+===================================================================
+diff --git a/src/main/java/supermarktsimulator/model/Persoon.java b/src/main/java/supermarktsimulator/model/Persoon.java
+new file mode 100644
+--- /dev/null	(date 1761064915095)
++++ b/src/main/java/supermarktsimulator/model/Persoon.java	(date 1761064915095)
+@@ -0,0 +1,38 @@
++package supermarktsimulator.model;
++
++import java.awt.Graphics; // Nodig voor het 'Graphics' object
++
++/**
++ * Dit is een 'abstracte' basisklasse voor alle personen in de simulatie.
++ * Abstract betekent dat je geen 'Persoon' direct kunt aanmaken, alleen subklassen zoals Klant of Vakkenvuller.
++ * Het bevat de eigenschappen die alle personen gemeen hebben, zoals hun positie.
++ */
++public abstract class Persoon {
++
++    // De positie van de persoon op het scherm.
++    // 'protected' betekent dat deze variabelen toegankelijk zijn in deze klasse én in alle subklassen (zoals Klant).
++    protected double x;
++    protected double y;
++
++    /**
++     * Constructor om een persoon op een startpositie te plaatsen.
++     * @param startX De x-coördinaat waar de persoon begint.
++     * @param startY De y-coördinaat waar de persoon begint.
++     */
++    public Persoon(double startX, double startY) {
++        this.x = startX;
++        this.y = startY;
++    }
++
++    /**
++     * Update de logica van de persoon, zoals beweging.
++     * Deze methode wordt elke 'tick' van de simulatie aangeroepen.
++     */
++    public abstract void update();
++
++    /**
++     * Tekent de persoon op het scherm.
++     * @param g Het Graphics object waarmee getekend wordt.
++     */
++    public abstract void draw(Graphics g);
++}
+\ No newline at end of file
+Index: src/main/java/supermarktsimulator/view/SupermarketPanel.java
+===================================================================
+diff --git a/src/main/java/supermarktsimulator/view/SupermarketPanel.java b/src/main/java/supermarktsimulator/view/SupermarketPanel.java
+new file mode 100644
+--- /dev/null	(date 1761066740840)
++++ b/src/main/java/supermarktsimulator/view/SupermarketPanel.java	(date 1761066740840)
+@@ -0,0 +1,128 @@
++package supermarktsimulator.view;
++
++import supermarktsimulator.model.Klant;
++import javax.imageio.ImageIO;
++import javax.swing.*;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.awt.image.BufferedImage;
++import java.io.BufferedReader;
++import java.io.IOException;
++import java.io.InputStreamReader;
++import java.util.ArrayList;
++import java.util.Arrays;
++import java.util.List;
++import java.util.Objects;
++
++public class SupermarketPanel extends JPanel implements ActionListener {
++
++    private BufferedImage tileset;
++    private int[][] map;
++    private final int tileSize = 32;
++
++    private Timer timer;
++    private List<Klant> klanten;
++
++    public SupermarketPanel() {
++        try {
++            tileset = ImageIO.read(Objects.requireNonNull(getClass().getResource("/FlorisIsCool.png")));
++            map = loadMap("/tilemap.txt");
++        } catch (IOException | NullPointerException e) {
++            System.err.println("Kon de tilemap of tileset niet laden! Controleer of de bestanden in de 'resources' map staan.");
++            e.printStackTrace();
++            map = new int[1][1];
++        }
++
++        klanten = new ArrayList<>();
++        maakKlantenAan();
++
++        timer = new Timer(16, this);
++        timer.start();
++    }
++
++    /**
++     * Maakt een klant aan met een route die correct is voor de gegeven tilemap.
++     * De klant loopt netjes door de gangpaden (waar de tegel '0' is),
++     * gaat naar de kassa en verlaat de winkel.
++     */
++    private void maakKlantenAan() {
++        // Een correcte en logische route gebaseerd op de tilemap.
++        List<Point> klantRoute = Arrays.asList(
++                // Stap 1: Winkel binnenkomen
++                new Point(4 * tileSize, 22 * tileSize),  // Start buiten de deur
++                new Point(4 * tileSize, 19 * tileSize),  // Loop door de deur naar binnen op het hoofdpad
++
++                // Stap 2: Boodschappen doen in de gangpaden
++                new Point(7 * tileSize, 19 * tileSize),  // Loop naar het eerste gangpad (rechts)
++                new Point(7 * tileSize, 6 * tileSize),   // Loop het gangpad omhoog (langs schappen 3 en 5)
++                new Point(19 * tileSize, 6 * tileSize),  // Loop door het bovenste gangpad naar rechts (langs schappen 3 en 4)
++                new Point(19 * tileSize, 10 * tileSize), // Loop het rechter gangpad een stukje omlaag
++                new Point(12 * tileSize, 10 * tileSize), // Loop door een middengangpad naar links
++                new Point(12 * tileSize, 14 * tileSize), // Loop een ander gangpad omlaag
++
++                // Stap 3: Naar de kassa gaan
++                new Point(12 * tileSize, 19 * tileSize), // Loop naar het hoofdgangpad onderaan
++                new Point(15 * tileSize, 19 * tileSize), // Loop naar een kassa (nummer 6 op de kaart staat op y=18)
++
++                // Stap 4: Winkel verlaten
++                new Point(4 * tileSize, 19 * tileSize),  // Loop terug richting de uitgang
++                new Point(4 * tileSize, 22 * tileSize)   // Loop naar buiten en verlaat het scherm
++        );
++
++        // Maak de klant aan met deze nieuwe, correcte route
++        Klant nieuweKlant = new Klant(klantRoute.get(0).x, klantRoute.get(0).y, klantRoute);
++        klanten.add(nieuweKlant);
++    }
++
++    @Override
++    public void actionPerformed(ActionEvent e) {
++        updateSimulatie();
++        repaint();
++    }
++
++    private void updateSimulatie() {
++        for (Klant klant : klanten) {
++            klant.update();
++        }
++    }
++
++    private int[][] loadMap(String path) throws IOException {
++        try (BufferedReader reader = new BufferedReader(
++                new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(path))))) {
++
++            return reader.lines()
++                    .map(line -> line.trim().split(" +"))
++                    .map(arr -> Arrays.stream(arr)
++                            .mapToInt(Integer::parseInt)
++                            .toArray())
++                    .toArray(int[][]::new);
++        }
++    }
++
++    @Override
++    protected void paintComponent(Graphics g) {
++        super.paintComponent(g);
++
++        if (tileset == null || map == null) {
++            g.setColor(Color.RED);
++            g.drawString("Kon resources niet laden!", 10, 20);
++            return;
++        }
++
++        int tilesPerRow = tileset.getWidth() / tileSize;
++        for (int y = 0; y < map.length; y++) {
++            for (int x = 0; x < map[y].length; x++) {
++                int tileIndex = map[y][x];
++                int tileX = (tileIndex % tilesPerRow) * tileSize;
++                int tileY = (tileIndex / tilesPerRow) * tileSize;
++                BufferedImage tile = tileset.getSubimage(tileX, tileY, tileSize, tileSize);
++                g.drawImage(tile, x * tileSize, y * tileSize, null);
++            }
++        }
++
++        for (Klant klant : klanten) {
++            klant.draw(g);
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/supermarktsimulator/model/Klant.java
+===================================================================
+diff --git a/src/main/java/supermarktsimulator/model/Klant.java b/src/main/java/supermarktsimulator/model/Klant.java
+new file mode 100644
+--- /dev/null	(date 1761064935250)
++++ b/src/main/java/supermarktsimulator/model/Klant.java	(date 1761064935250)
+@@ -0,0 +1,81 @@
++package supermarktsimulator.model;
++
++// --- BELANGRIJK: Alle benodigde imports ---
++import javax.imageio.ImageIO;
++import java.awt.Color; // Nodig voor het tekenen van een alternatieve cirkel
++import java.awt.Graphics;
++import java.awt.Point; // Nodig voor de route-coördinaten
++import java.awt.image.BufferedImage;
++import java.io.IOException;
++import java.util.List; // Nodig voor de lijst van punten
++import java.util.Objects;
++// --- Einde van de imports ---
++
++/**
++ * De Klant klasse representeert een klant in de supermarkt.
++ * Een klant erft van Persoon en heeft dus een x- en y-positie.
++ * Daarnaast heeft een klant een route die hij volgt.
++ */
++public class Klant extends Persoon { // 'extends Persoon' erft de x en y variabelen
++
++    private BufferedImage sprite;
++    private List<Point> route;
++    private int huidigDoelIndex;
++    private final double snelheid = 2.0;
++
++    /**
++     * Constructor om een nieuwe klant te maken.
++     * @param startX De x-positie waar de klant begint.
++     * @param startY De y-positie waar de klant begint.
++     * @param route De route die de klant zal volgen.
++     */
++    public Klant(double startX, double startY, List<Point> route) {
++        // 'super()' roept de constructor van de bovenliggende klasse (Persoon) aan.
++        super(startX, startY);
++        this.route = route;
++        this.huidigDoelIndex = 0;
++
++        try {
++            sprite = ImageIO.read(Objects.requireNonNull(getClass().getResource("/klant.png")));
++        } catch (IOException | NullPointerException e) {
++            System.err.println("Afbeelding voor klant niet gevonden! Zorg dat 'klant.png' in de resources map staat.");
++            sprite = null; // Zorg ervoor dat sprite null is als het laden mislukt
++        }
++    }
++
++    /**
++     * Deze methode wordt continu aangeroepen om de klant te laten bewegen.
++     */
++    @Override // Deze annotatie geeft aan dat we een methode van de superklasse overschrijven.
++    public void update() {
++        if (route == null || route.isEmpty() || huidigDoelIndex >= route.size()) {
++            return;
++        }
++
++        Point doel = route.get(huidigDoelIndex);
++        double dx = doel.x - this.x; // 'this.x' komt uit de Persoon klasse
++        double dy = doel.y - this.y; // 'this.y' komt uit de Persoon klasse
++        double afstand = Math.sqrt(dx * dx + dy * dy);
++
++        if (afstand < snelheid) {
++            huidigDoelIndex++;
++        } else {
++            this.x += (dx / afstand) * snelheid;
++            this.y += (dy / afstand) * snelheid;
++        }
++    }
++
++    /**
++     * Tekent de klant op zijn huidige positie.
++     */
++    @Override // Ook deze methode komt uit Persoon.
++    public void draw(Graphics g) {
++        if (sprite != null) {
++            g.drawImage(sprite, (int) x, (int) y, null);
++        } else {
++            // Als de afbeelding niet is geladen, teken een simpele blauwe cirkel.
++            g.setColor(Color.BLUE);
++            g.fillOval((int) x, (int) y, 32, 32);
++        }
++    }
++}
+\ No newline at end of file
