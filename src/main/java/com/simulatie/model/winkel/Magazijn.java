@@ -4,7 +4,7 @@ package com.simulatie.model.winkel;
  * HET DOEL: Representeert het magazijn. Beheert de centrale voorraad van de winkel.
  */
 public class Magazijn {
-    private int voorraad = 20; // Start met een kleine voorraad
+    private int voorraad = 60; // Start met een kleine voorraad
 
     public int getVoorraad() {
         return voorraad;

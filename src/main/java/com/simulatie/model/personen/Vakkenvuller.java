@@ -16,7 +16,7 @@ public class Vakkenvuller extends Persoon {
     private Status status = Status.RONDLOPEN;
 
     private int handVoorraad = 0; // Hoeveel producten de vuller momenteel bij zich draagt.
-    private static final int MAX_HANDVOORRAAD = 20; // Maximaal aantal producten dat hij kan dragen.
+    private static final int MAX_HANDVOORRAAD = 60; // Maximaal aantal producten dat hij kan dragen.
     private static final int VUL_HOEVEELHEID = 10; // Hoeveel producten hij per keer in een schap legt.
 
     private Schap doelSchap = null;
